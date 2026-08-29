@@ -1,0 +1,44 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build output
+bin/
+obj/
+
+# Debug / Release
+Debug/
+Release/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+
+# NuGet
+packages/
+*.nupkg
+
+# Test results
+TestResults/
+*.trx
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# ASP.NET Core local secrets
+appsettings.Development.json
+
+# Environment variables
+.env
+.env.*
+
+# IDE
+.idea/
+.vscode/

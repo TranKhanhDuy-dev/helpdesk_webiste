@@ -1,0 +1,128 @@
+@using WebWithDotNet.Models
+@model IEnumerable<WebWithDotNet.Models.Category>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Categories </h1>
+    <p>
+        <a asp-action="Create" > Create New Category </a>
+    </p>
+    <table>
+        <thead>
+            <th> ID </th>
+            <th> Name </th>
+            <th> Description </th>
+            <th> Status </th>
+            <th> UpdateAt </th>
+            <th> CreateAt </th>
+        </thead>
+        <tbody>
+            @foreach(var category in Model)
+            {
+                <tr>
+                    <td> @category.Id </td>
+                    <td> @category.Name </td>
+                    <td> @category.Description </td>
+                    <td> @category.IsActive </td>
+                    <td> @category.UpdateAt </td>
+                    <td> @category.CreateAt </td>
+                    <td>
+                        <button type = "button" onclick = "OpenEditModal(@category.Id, @category.Name, @category.Description, @category.IsActive)">
+                            Edit
+                        </button>
+                    </td>
+                    <td>
+                        <button type = "button" onclick = "OpenDeleteModal(@category.Id, @category.Name)">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div id = "editModal" style = "display: none;">
+        <div>
+            <h2> Edit </h2>
+            <form asp-action = "Edit" method = "Post">
+                @foreach(var category in Model)
+                {
+                    <input type = "hidden" asp-for = "@category.Id" id = "editID" />
+                    <div>
+                        <label asp-for= "@category.Name">Name: </label>
+                        <input asp-for = "@category.Name" id = "editName"/>
+                        <span asp-validation-for = "@category.Name"></span>
+                    </div>
+                    <div>
+                        <label asp-for = "@category.Description">Description: </label>
+                        <input asp-for = "@category.Description" id = "editDescription"/>
+                    </div>
+                    <div>
+                        <select asp-for = "@category.IsActive" id = "editStatus">
+                            <option value = "true"> Acitve </option>
+                            <option value = "false"> Inactive </option>
+                        </select>
+                    </div>
+                }
+                <div>
+                    <button type = "button" onclick = "CloseEditModal()">
+                        Close
+                    </button>
+                    <button type = "submit">
+                        Confirm
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id = "deleteModal" style = "display: none">
+        <div>
+            <h2> Confirm Delete</h2>
+            <div id = "deleteText"> </div>
+            <div>
+                <form asp-action = "Delete" method = "Post">
+                    <ipnut type = "hidden" id = "deleteID" asp-for= "id" />
+                    <button type = "button" onclick = "CloseDeleteModal()">
+                        Close
+                    </button>
+                    <button type = "submit">
+                        Delete
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts
+    {
+        <script>
+            function OpenEditModal(id, name, description, status)
+            {
+                document.getElementById("editID").value = id;
+                document.getElementById("editName").placeholder = name.toString();
+                document.getElementById("editDescription").placeholder = description.toString();
+                document.getElementById("editStatus").value = status
+                document.getElementById("editModal").style.disyplay = block;
+            }
+            function CloseEditModal(){
+                document.getElementById("editModal").style.display = none;
+            }
+            function OpenDeleteModal(id, name)
+            {
+                document.getElementById("deleteText").textContent = "Are you sure to delete" + name.toString();
+                document.getElementById("deleteID").value = id;
+                document.getElementById("deleteModal").style.disyplay = block;
+            }
+            function CloseEditModal(){
+                document.getElementById("deleteModal").style.display = none;
+            }
+        </script>
+    }
+</body>
+</html>
