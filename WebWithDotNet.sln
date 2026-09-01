@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebWithDotNet", "WebWithDotNet\WebWithDotNet.csproj", "{1ACBDEB9-DA8A-404F-81BA-8011060BAB0D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebWithDotNet.Selenium", "WebWithDotNet.Selenium\WebWithDotNet.Selenium.csproj", "{32DD55B4-78A7-4D3B-8ACE-01C06A22879D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{1ACBDEB9-DA8A-404F-81BA-8011060BAB0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1ACBDEB9-DA8A-404F-81BA-8011060BAB0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1ACBDEB9-DA8A-404F-81BA-8011060BAB0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32DD55B4-78A7-4D3B-8ACE-01C06A22879D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32DD55B4-78A7-4D3B-8ACE-01C06A22879D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32DD55B4-78A7-4D3B-8ACE-01C06A22879D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32DD55B4-78A7-4D3B-8ACE-01C06A22879D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

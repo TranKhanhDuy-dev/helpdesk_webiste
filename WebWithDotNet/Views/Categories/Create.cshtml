@@ -11,26 +11,26 @@
     <form asp-action="Create" method="Post">
         <div>
             <label asp-for = "Name">Name:</label>
-            <input asp-for = "Name" />
+            <input asp-for = "Name" id = "InputName"/>
             <span asp-validation-for = "Name"></span>
         </div>
         <br />
         <div>
-            <label asp-for = "Description">Description:</label>
-            <input asp-for = "Description" />
+            <label asp-for = "Description" >Description:</label>
+            <input asp-for = "Description" id = "InputDescription"/>
         </div>
         <br />
         <div>
-            <label asp-for = "IsActive">Status:</label>
-            <select asp-for ="IsActive">
+            <label asp-for = "IsActive" >Status:</label>
+            <select asp-for ="IsActive" id = "InputStatus">
                 <option value = "true"> Active </option>
                 <option value = "false"> Inactive </option>
             </select>
         </div>
         <br />
         <div>
-            <button type = "Reset"> Clear </button>
-            <button type = "Submit"> Create </button>
+            <button type = "Reset" id = "ClearButton"> Clear </button>
+            <button type = "Submit" id = "SubmitButton"> Create </button>
         </div>
     </form>
 </body>
