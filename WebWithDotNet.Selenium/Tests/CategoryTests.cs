@@ -32,7 +32,7 @@ public class CategoryTests
 
         wait.Until(d =>
         {
-            IWebElement element = d.FindElement(By.Id("InputName"));
+            IWebElement element = d.FindElement(By.Id("InputCategoryId"));
 
             if (element.Displayed && element.Enabled)
             {
@@ -40,7 +40,10 @@ public class CategoryTests
             }
 
             return null;
-        }).SendKeys("Hardware");
+        }).SendKeys("CAT-HW");
+        Thread.Sleep(1000);
+
+        driver.FindElement(By.Id("InputName")).SendKeys("Hardware");
         Thread.Sleep(1000);
 
         string Description = "Issues related to computers, laptops, monitors, printers, keyboards, mice, and other physical equipment.";

@@ -12,7 +12,7 @@ using WebWithDotNet.Data;
 namespace WebWithDotNet.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260824020034_InitialCreate")]
+    [Migration("20260902022823_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -32,6 +32,10 @@ namespace WebWithDotNet.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CategoryId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2");

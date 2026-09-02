@@ -1,0 +1,11 @@
+﻿Id,Category Id,Name,Description
+1,CAT-HW,Hardware,"Issues related to computers, laptops, monitors, keyboards, mice, and other physical equipment."
+2,CAT-SW,Software,"Issues related to software applications, operating systems, and installed programs."
+3,CAT-NET,Network,"Issues related to network connectivity, Wi-Fi, LAN, VPN, and Internet access."
+4,CAT-ACC,Account,"Issues related to user accounts, login problems, passwords, and account permissions."
+5,CAT-PRT,Printer,"Issues related to printers, scanners, printing errors, and print configuration."
+6,CAT-EML,Email,"Issues related to email accounts, sending or receiving emails, and email configuration."
+7,CAT-SEC,Security,"Issues related to security incidents, suspicious activity, malware, and access control."
+8,CAT-SRV,Server,"Issues related to servers, shared folders, system services, and server availability."
+9,CAT-MOB,Mobile Device,"Issues related to smartphones, tablets, mobile applications, and device configuration."
+10,CAT-OTH,Other,IT issues that do not belong to any of the available categories.
