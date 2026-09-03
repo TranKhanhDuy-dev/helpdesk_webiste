@@ -91,12 +91,12 @@ public class CategoryAutomation
         );
 
         wait.Until(
-            d => d.FindElement(By.Id("NewCategory"))
+            d => d.FindElement(By.Id("newcategory"))
         ).Click();
 
         wait.Until(d =>
         {
-            IWebElement element = d.FindElement(By.Id("InputCategoryId"));
+            IWebElement element = d.FindElement(By.Id("inputcategoryid"));
 
             if (element.Displayed && element.Enabled)
             {
@@ -106,14 +106,14 @@ public class CategoryAutomation
             return null;
         }).SendKeys(category.CategoryId);
 
-        _driver.FindElement(By.Id("InputName")).SendKeys(category.Name);
+        _driver.FindElement(By.Id("inputname")).SendKeys(category.Name);
 
-        _driver.FindElement(By.Id("InputDescription")).SendKeys(category.Description);
+        _driver.FindElement(By.Id("inputdescription")).SendKeys(category.Description);
 
-        SelectElement status = new SelectElement(_driver.FindElement(By.Id("InputStatus")));
-        status.SelectByValue(category.Status == "Active" ? "true" : "false");
+        SelectElement status = new SelectElement(_driver.FindElement(By.Id("inputstatus")));
+        status.SelectByValue(category.Status.ToLower() == "active" ? "true" : "false");
 
-        _driver.FindElement(By.Id("SubmitButton")).Click();
+        _driver.FindElement(By.Id("submitbutton")).Click();
     }
 
     public void CreateCategories(string filePath)

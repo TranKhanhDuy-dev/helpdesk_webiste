@@ -1,41 +1,47 @@
 @model WebWithDotNet.Models.Category
+@{
+    var CategoryLocalizer = LocalizerFactory.Create(
+        "Category.CategoryResource",
+        "WebWithDotNet"
+    );
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Create Category</title>
 </head>
 <body>
-    <h1> Create New Category </h1>
+    <h1> @CategoryLocalizer["title"] </h1>
     <form asp-action="Create" method="Post">
         <div>
-            <label asp-for = "CategoryId">CategoryId:</label>
-            <input asp-for = "CategoryId" id = "InputCategoryId"/>
+            <label asp-for = "CategoryId">@CategoryLocalizer["categoryid"]</label>
+            <input asp-for = "CategoryId" id = "inputcategoryid"/>
             <span asp-validation-for = "CategoryId"></span>
         </div>
         <div>
-            <label asp-for = "Name">Name:</label>
-            <input asp-for = "Name" id = "InputName"/>
+            <label asp-for = "Name">@CategoryLocalizer["name"]</label>
+            <input asp-for = "Name" id = "inputname"/>
             <span asp-validation-for = "Name"></span>
         </div>
         <br />
         <div>
-            <label asp-for = "Description" >Description:</label>
-            <input asp-for = "Description" id = "InputDescription"/>
+            <label asp-for = "Description" >@CategoryLocalizer["description"]</label>
+            <textarea asp-for = "Description" id = "inputdescription"></textarea>
         </div>
         <br />
         <div>
-            <label asp-for = "IsActive" >Status:</label>
-            <select asp-for ="IsActive" id = "InputStatus">
-                <option value = "true"> Active </option>
-                <option value = "false"> Inactive </option>
+            <label asp-for = "IsActive">@CategoryLocalizer["status"]</label>
+            <select asp-for ="IsActive" id = "inputstatus">
+                <option value = "true"> @CategoryLocalizer["active"] </option>
+                <option value = "false"> @CategoryLocalizer["inactive"]</option>
             </select>
         </div>
         <br />
         <div>
-            <button type = "Reset" id = "ClearButton"> Clear </button>
-            <button type = "Submit" id = "SubmitButton"> Create </button>
+            <button type = "Reset" id = "clearButton"> @CategoryLocalizer["clearbutton"] </button>
+            <button type = "Submit" id = "submitButton"> @CategoryLocalizer["submitbutton"] </button>
         </div>
     </form>
 </body>

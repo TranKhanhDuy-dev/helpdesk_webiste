@@ -48,39 +48,39 @@
         </tbody>
     </table>
 
-    <div id = "editModal" style = "display: none;">
+    <div id = "editmodal" style = "display: none;">
         <div>
             <h2> Edit </h2>
             <form asp-action = "Edit" method = "Post">
                 @foreach(var category in Model)
                 {
-                    <input type = "hidden" asp-for = "@category.Id" id = "editID" />
+                    <input type = "hidden" asp-for = "@category.Id" id = "editid" />
                     <div>
                         <label asp-for = "@category.CategoryId">CategoryId:</label>
-                        <input asp-for = "@category.CategoryId" id = "editCategoryId"/>
+                        <input asp-for = "@category.CategoryId" id = "editcategoryid"/>
                         <span asp-validation-for = "@category.CategoryId"></span>
                     </div>
                     <div>
                         <label asp-for= "@category.Name">Name: </label>
-                        <input asp-for = "@category.Name" id = "editName"/>
+                        <input asp-for = "@category.Name" id = "editname"/>
                         <span asp-validation-for = "@category.Name"></span>
                     </div>
                     <div>
                         <label asp-for = "@category.Description">Description: </label>
-                        <input asp-for = "@category.Description" id = "editDescription"/>
+                        <input asp-for = "@category.Description" id = "editdescription"/>
                     </div>
                     <div>
-                        <select asp-for = "@category.IsActive" id = "editStatus">
+                        <select asp-for = "@category.IsActive" id = "editstatus">
                             <option value = "true"> Acitve </option>
                             <option value = "false"> Inactive </option>
                         </select>
                     </div>
                 }
                 <div>
-                    <button type = "button" id = "CloseButton" onclick = "CloseEditModal()">
+                    <button type = "button" id = "closebutton" onclick = "CloseEditModal()">
                         Close
                     </button>
-                    <button type = "submit" id = "SubmitButton">
+                    <button type = "submit" id = "submitbutton">
                         Confirm
                     </button>
                 </div>
@@ -88,13 +88,13 @@
         </div>
     </div>
 
-    <div id = "deleteModal" style = "display: none">
+    <div id = "deletemodal" style = "display: none">
         <div>
             <h2> Confirm Delete</h2>
-            <div id = "deleteText"> </div>
+            <div id = "deletetext"> </div>
             <div>
                 <form asp-action = "Delete" method = "Post">
-                    <ipnut type = "hidden" id = "deleteID" asp-for= "id" />
+                    <ipnut type = "hidden" id = "deleteid" asp-for= "id" />
                     <button type = "button" onclick = "CloseDeleteModal()">
                         Close
                     </button>
@@ -111,23 +111,23 @@
         <script>
             function OpenEditModal(id, name, description, status)
             {
-                document.getElementById("editID").value = id;
-                document.getElementById("editName").placeholder = name.toString();
-                document.getElementById("editDescription").placeholder = description.toString();
-                document.getElementById("editStatus").value = status
-                document.getElementById("editModal").style.disyplay = block;
+                document.getElementById("editid").value = id;
+                document.getElementById("editname").placeholder = name.toString();
+                document.getElementById("editdescription").placeholder = description.toString();
+                document.getElementById("editstatus").value = status
+                document.getElementById("editmodal").style.disyplay = block;
             }
             function CloseEditModal(){
-                document.getElementById("editModal").style.display = none;
+                document.getElementById("editmodal").style.display = none;
             }
             function OpenDeleteModal(id, name)
             {
-                document.getElementById("deleteText").textContent = "Are you sure to delete" + name.toString();
-                document.getElementById("deleteID").value = id;
-                document.getElementById("deleteModal").style.disyplay = block;
+                document.getElementById("deletetext").textContent = "Are you sure to delete" + name.toString();
+                document.getElementById("deleteid").value = id;
+                document.getElementById("deletemodal").style.disyplay = block;
             }
             function CloseEditModal(){
-                document.getElementById("deleteModal").style.display = none;
+                document.getElementById("deletemodal").style.display = none;
             }
         </script>
     }

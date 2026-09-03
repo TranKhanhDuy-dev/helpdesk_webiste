@@ -27,12 +27,12 @@ public class CategoryTests
         );
 
         wait.Until(
-            d => d.FindElement(By.Id("NewCategory"))
+            d => d.FindElement(By.Id("newcategory"))
         ).Click();
 
         wait.Until(d =>
         {
-            IWebElement element = d.FindElement(By.Id("InputCategoryId"));
+            IWebElement element = d.FindElement(By.Id("inputcategoryid"));
 
             if (element.Displayed && element.Enabled)
             {
@@ -43,18 +43,18 @@ public class CategoryTests
         }).SendKeys("CAT-HW");
         Thread.Sleep(1000);
 
-        driver.FindElement(By.Id("InputName")).SendKeys("Hardware");
+        driver.FindElement(By.Id("inputname")).SendKeys("Hardware");
         Thread.Sleep(1000);
 
         string Description = "Issues related to computers, laptops, monitors, printers, keyboards, mice, and other physical equipment.";
-        driver.FindElement(By.Id("InputDescription")).SendKeys(Description);
+        driver.FindElement(By.Id("inputdescription")).SendKeys(Description);
         Thread.Sleep(1000);
 
-        SelectElement status = new SelectElement(driver.FindElement(By.Id("InputStatus")));
+        SelectElement status = new SelectElement(driver.FindElement(By.Id("inputstatus")));
         status.SelectByText("Active");
         Thread.Sleep(1000);
 
-        driver.FindElement(By.Id("SubmitButton")).Click();
+        driver.FindElement(By.Id("submitbutton")).Click();
         Thread.Sleep(2000);
     }
 }
