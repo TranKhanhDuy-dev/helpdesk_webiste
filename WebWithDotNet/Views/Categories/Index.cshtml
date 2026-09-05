@@ -108,28 +108,7 @@
 
     @section Scripts
     {
-        <script>
-            function OpenEditModal(id, name, description, status)
-            {
-                document.getElementById("editid").value = id;
-                document.getElementById("editname").placeholder = name.toString();
-                document.getElementById("editdescription").placeholder = description.toString();
-                document.getElementById("editstatus").value = status
-                document.getElementById("editmodal").style.disyplay = block;
-            }
-            function CloseEditModal(){
-                document.getElementById("editmodal").style.display = none;
-            }
-            function OpenDeleteModal(id, name)
-            {
-                document.getElementById("deletetext").textContent = "Are you sure to delete" + name.toString();
-                document.getElementById("deleteid").value = id;
-                document.getElementById("deletemodal").style.disyplay = block;
-            }
-            function CloseEditModal(){
-                document.getElementById("deletemodal").style.display = none;
-            }
-        </script>
+        <script src = "~/js/category.js"></script>
     }
 </body>
 </html>

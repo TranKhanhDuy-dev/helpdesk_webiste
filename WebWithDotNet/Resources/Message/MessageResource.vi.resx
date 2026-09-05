@@ -1,0 +1,71 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+
+    <date name="categorylower" xml:space="preserve">
+        <value>danh mục</value>
+    </date>
+    <data name="categoryupper" xml:space="preserve">
+        <value>Danh mục</value>
+    </data>
+        <data name="codelower" xml:space="preserve">
+        <value>mã</value>
+    </data>
+    <data name="codeupper" xml:space="preserve">
+        <value>Mã</value>
+    </data>
+    <data name="namelower" xml:space="preserve">
+        <value>tên</value>
+    </data>
+    <data name="nameupper" xml:space="preserve">
+        <value>Tên</value>
+    </data>
+    <data name="descriptionlower" xml:space="preserve">
+        <value>mô tả</value>
+    </data>
+    <data name="descriptionupper" xml:space="preserve">
+        <value>Mô tả</value>
+    </data>
+
+    <data name="exists" xml:space="preserve">
+        <value>{0} đã tồn tại</value>
+    </data>
+
+    <data name="createsucceed" xml:space="preserve">
+        <value>{0} được tạo thành công</value>
+    </data>
+
+    <data name="createfailed" xml:space="preserve">
+        <value>Thất bại trong tạo {0}</value>
+    </data>
+
+    <data name="deletesucceed" xml:space="preserve">
+        <value>{0} được xóa thành công</value>
+    </data>
+
+    <data name="deletefailed" xml:space="preserve">
+        <value>Thất bại trong xóa {0}</value>
+    </data>
+
+    <data name="updatesucceed" xml:space="preserve">
+        <value>{0} cập nhật thành công</value>
+    </data>
+
+    <data name="updatefailed" xml:space="preserve">
+        <value>Thất bại trong cập nhật {0}</value>
+    </data>
+</root>

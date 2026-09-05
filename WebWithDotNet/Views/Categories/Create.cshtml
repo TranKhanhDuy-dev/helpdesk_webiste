@@ -1,48 +1,60 @@
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Create Category";
+}
 @model WebWithDotNet.Models.Category
 @{
     var CategoryLocalizer = LocalizerFactory.Create(
         "Category.CategoryResource",
         "WebWithDotNet"
     );
+    var MessageLocalizer = LocalizerFactory.Create(
+        "Message.MessageResource",
+        "WebWithDotNet"
+    );
 }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Category</title>
-</head>
-<body>
-    <h1> @CategoryLocalizer["title"] </h1>
-    <form asp-action="Create" method="Post">
-        <div>
-            <label asp-for = "CategoryId">@CategoryLocalizer["categoryid"]</label>
-            <input asp-for = "CategoryId" id = "inputcategoryid"/>
-            <span asp-validation-for = "CategoryId"></span>
+<h1> @CategoryLocalizer["title"] </h1>
+<form asp-controller = "Categories" asp-action="Create" method="Post" id = "createcategory">
+    <div>
+        <label asp-for = "CategoryId">@CategoryLocalizer["categoryid"]</label>
+        <input asp-for = "CategoryId" id = "inputcategoryid"/>
+        <span asp-validation-for = "CategoryId"></span>
+    </div>
+    <div>
+        <label asp-for = "Name">@CategoryLocalizer["name"]</label>
+        <input asp-for = "Name" id = "inputname"/>
+        <span asp-validation-for = "Name"></span>
+    </div>
+    <br />
+    <div>
+        <label asp-for = "Description" >@CategoryLocalizer["description"]</label>
+        <textarea asp-for = "Description" id = "inputdescription"></textarea>
+    </div>
+    <br />
+    <div>
+        <label asp-for = "IsActive">@CategoryLocalizer["status"]</label>
+        <select asp-for ="IsActive" id = "inputstatus">
+            <option value = "true"> @CategoryLocalizer["active"] </option>
+            <option value = "false"> @CategoryLocalizer["inactive"]</option>
+        </select>
+    </div>
+    <br />
+    <div>
+        <button type = "Reset" id = "clearbutton"> @CategoryLocalizer["clearbutton"] </button>
+        <button type = "Submit" id = "submitbutton"> @CategoryLocalizer["submitbutton"] </button>
+    </div>
+</form>
+<div id = "notification" style = "display:none">
+    <div>
+        <h2 id = "notificationname"></h2>
+        <div id = "notificationmessage"></div>
+        <div id = "buttoncontent">
+            <button type = "button" id = "closebutton" onclick = "CloseNotification()">Close</button>
         </div>
-        <div>
-            <label asp-for = "Name">@CategoryLocalizer["name"]</label>
-            <input asp-for = "Name" id = "inputname"/>
-            <span asp-validation-for = "Name"></span>
-        </div>
-        <br />
-        <div>
-            <label asp-for = "Description" >@CategoryLocalizer["description"]</label>
-            <textarea asp-for = "Description" id = "inputdescription"></textarea>
-        </div>
-        <br />
-        <div>
-            <label asp-for = "IsActive">@CategoryLocalizer["status"]</label>
-            <select asp-for ="IsActive" id = "inputstatus">
-                <option value = "true"> @CategoryLocalizer["active"] </option>
-                <option value = "false"> @CategoryLocalizer["inactive"]</option>
-            </select>
-        </div>
-        <br />
-        <div>
-            <button type = "Reset" id = "clearButton"> @CategoryLocalizer["clearbutton"] </button>
-            <button type = "Submit" id = "submitButton"> @CategoryLocalizer["submitbutton"] </button>
-        </div>
-    </form>
-</body>
-</html>
+    </div>
+</div>
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/Category.js"></script>
+}

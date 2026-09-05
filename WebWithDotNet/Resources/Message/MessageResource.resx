@@ -1,0 +1,52 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+
+    <data name="required" xml:space="preserve">
+        <value>{0} is required</value>
+    </data>
+    <data name="maxlength" xml:space="preserve">
+        <value>{0} cannot exceed {1} characters</value>
+    </data>
+    <data name="exists" xml:space="preserve">
+        <value>{0} already exists</value>
+    </data>
+
+    <data name="createsucceed" xml:space="preserve">
+        <value>{0} created successfully</value>
+    </data>
+
+    <data name="createfailed" xml:space="preserve">
+        <value>Failed to create {0}</value>
+    </data>
+
+    <data name="deletesucceed" xml:space="preserve">
+        <value>{0} deleted successfully</value>
+    </data>
+
+    <data name="deletefailed" xml:space="preserve">
+        <value>Failed to delete {0}</value>
+    </data>
+
+    <data name="updatesucceed" xml:space="preserve">
+        <value>{0} updated successfully</value>
+    </data>
+
+    <data name="updatefailed" xml:space="preserve">
+        <value>Failed to update {0}</value>
+    </data>
+</root>

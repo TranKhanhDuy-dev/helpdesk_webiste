@@ -1,17 +1,24 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using WebWithDotNet.Data;
 using WebWithDotNet.Models;
+using WebWithDotNet.Resources.Message;
 
 namespace WebWithDotNet.Controllers;
 
 public class CategoriesController : Controller
 {
     private readonly ApplicationDbContext _context;
+    private readonly IStringLocalizer _localizer;
 
-    public CategoriesController(ApplicationDbContext context)
+    public CategoriesController(ApplicationDbContext context, IStringLocalizerFactory localizerFactory)
     {
         _context = context;
+        _localizer = localizerFactory.Create(
+            "Message.MessageResource",
+            "WebWithDotNet"
+        );
     }
 
     #region Create
@@ -25,14 +32,36 @@ public class CategoriesController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(Category category)
     {
-        if (!ModelState.IsValid)
+        try
         {
-            return View(category);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new
+                {
+                    success = false,
+                    name = "Failed",
+                    message = _localizer["createfailed", "category"].Value,
+                });
+            }
+            category.CreateAt = DateTime.Now;
+            _context.Categories.Add(category);
+            await _context.SaveChangesAsync();
+            return Ok(new
+            {
+                success = true,
+                result = "Succeeded",
+                message = _localizer["createsucceed", "Category"].Value,
+            });
         }
-        category.CreateAt = DateTime.Now;
-        _context.Categories.Add(category);
-        await _context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index));
+        catch
+        {
+            return BadRequest(new
+            {
+                success = false,
+                name = "Failed",
+                message = _localizer["createfailed", "category"].Value,
+            });
+        }
     }
     #endregion
 

@@ -1,14 +1,22 @@
 using Microsoft.EntityFrameworkCore;
-using WebWithDotNet.Data;
 using Microsoft.AspNetCore.Localization;
 using System.Globalization;
+
+using WebWithDotNet.Data;
+using WebWithDotNet.Resources.Message;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddLocalization(options =>
 {
     options.ResourcesPath = "Resources";
 });
-builder.Services.AddControllersWithViews().AddViewLocalization().AddDataAnnotationsLocalization();
+builder.Services.AddControllersWithViews()
+    .AddViewLocalization()
+    .AddDataAnnotationsLocalization(options =>
+    {
+        options.DataAnnotationLocalizerProvider = (type, factory) =>
+            factory.Create(typeof(MessageResource));
+    });
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
